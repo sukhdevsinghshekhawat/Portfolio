@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -17,10 +17,10 @@
     * {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
-    body, html {
+    body,
+    html {
       overflow-x: hidden;
       margin: 0;
       background-color: #0d1b2a;
@@ -28,26 +28,30 @@
       color: white;
     }
 
-    header {
-      margin-right: 0;
-    }
-
-    .navbar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      height: 50px;
+    .header {
+      height: 16vh;
       background-color: rgba(14, 14, 32, 0.4);
-      padding: 0 15px;
     }
 
-    .navbar .left {
+    .right ul {
+      display: flex;
+      justify-content: center;
+      background-color: rgba(14, 14, 32, 0.4);
+    }
+
+    ul li {
+      margin-right: 20px;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .left {
       font-size: 1.5rem;
-      color: #ffd400;
     }
 
-    .navbar button {
+    .header button {
       background-color: #ffd400;
       color: black;
       border: none;
@@ -55,7 +59,7 @@
       font-weight: bold;
     }
 
-    .navbar button:hover {
+    .header button:hover {
       background-color: #ffba08;
       color: black;
       text-decoration: underline;
@@ -63,10 +67,11 @@
 
     .aboutmy {
       margin-top: 100px;
+      margin-left: 15%;
       padding: 15px;
     }
 
-    .aboutmy span {
+    div span {
       font-size: 3.1rem;
       font-weight: bold;
       font-family: sans-serif;
@@ -74,6 +79,12 @@
 
     #name {
       color: #ffba08;
+    }
+
+    button {
+      color: black;
+      border: 1px;
+      border-radius: 25px;
     }
 
     #imageself {
@@ -89,7 +100,14 @@
       transform: scale(1.05);
     }
 
-    #aboutmy, #projects, #contact {
+    .aboutmy {
+      margin-top: 100px;
+      margin-left: 15%;
+    }
+
+    #aboutmy,
+    #projects,
+    #contact {
       background-color: transparent;
       width: 80%;
       height: 40%;
@@ -98,6 +116,17 @@
       font-size: 2rem;
       font-family: Arial, Helvetica, sans-serif;
       box-shadow: -10px 10px 100px;
+    }
+
+    @media (max-width: 768px) {
+      .aboutmy {
+        margin-left: 0;
+        margin-top: 50px;
+      }
+
+      .navbar {
+        flex-direction: column;
+      }
     }
 
     .card {
@@ -137,22 +166,6 @@
     .card-body .btn-warning:hover {
       background-color: #ffba08;
     }
-
-    @media (max-width: 768px) {
-      .aboutmy {
-        margin-left: 0;
-        margin-top: 50px;
-      }
-
-      .navbar {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .navbar button {
-        margin: 5px;
-      }
-    }
   </style>
 
   <script>
@@ -160,38 +173,32 @@
       const sections = document.querySelectorAll('.aboutmy, .contact, .projects');
       sections.forEach(function (sec) {
         sec.style.display = 'none'; // Hide all sections
+
       });
       document.getElementById(section).style.display = 'block'; // Show selected section
-    }
+    };
   </script>
+
 </head>
 
 <body>
   <header>
-    <div class="container-flex col-md-12 col-sm-12 col-lg-12">
-      <div class="left text-warning my-4 mx-3">
+
+    <div class=" container-flex col-md-12 col-sm-12 col-lg-12 header ">
+      <div class="left text-warning flex-grow-1 mx-3">
         Sukhdev Rajput
       </div>
-      <nav class="navbar justify-content-end navbar-expand-lg ">
-        <div class="right">
-          <div class=" container-flex col-md-12 col-sm-12 col-lg-12 ">
-            <nav class="navbar justify-content-end navbar-expand-lg ">
-              <div class="container-fluid ">
-                <img src="image/headerlogowood.png" style="height: 50px; width: 50px;">
-                <ul class="navbar-nav flex-grow-1 pe-3">
-                  <li class="nav-item "><button class="btn btn-warning" onclick="showSection('about')">Home</button>
-                  </li>
-                  <li class="nav-item "><button class="btn btn-warning"
-                      onclick="showSection('contact')">Contact</button></li>
-                  <li class="nav-item "><button class="btn btn-warning"
-                      onclick="showSection('projects')">Projects</button></li>
-                  <li class="nav-item "><button class="btn btn-warning" onclick="showSection('aboutmy')">About</button>
-                  </li>
-                </ul>
-              </div>
-          </div>
-        </div>
-      </nav>
+      <ul class="nav justify-content-end ">
+          <li class="nav-item "><button class="btn btn-warning" onclick="showSection('about')">Home</button>
+          </li>
+          <li class="nav-item "><button class="btn btn-warning"
+              onclick="showSection('contact')">Contact</button></li>
+          <li class="nav-item "><button class="btn btn-warning"
+              onclick="showSection('projects')">Projects</button></li>
+          <li class="nav-item "><button class="btn btn-warning" onclick="showSection('aboutmy')">About</button>
+          </li>
+      
+      </ul>
     </div>
 
 
@@ -221,7 +228,7 @@
   </section>
 
   <section>
-    <div class="col-md-8 col-lg-8 col-sm-12 mx-auto aboutmy" id="aboutmy">
+    <div class="col-md-8 col-lg-8 col-sm-12 mx-auto aboutmy" id="aboutmy" style="display: none;">
       <h4>Intro-</h4>
       <p> "Hello, my name is Sukhdev Singh, and I am currently a
         MCA student at Maharishi Arvind Institute of Science & Management - [MAISM], Jaipur.
@@ -229,7 +236,7 @@
       </p>
       <p> I believe in creating clean, user-friendly websites, designing with purpose.
         I believe in continuous learning and pushing myself to stay on top of the latest trends and technologies.
-        When I'm not coding, you can find me at my village [Sujdola].</p>
+        When I'm not coding, you can find me at my village[Sujdola].</p>
       <p> Take a look at my work, and if you think we’d be a good fit for your project, feel free to reach out!</p>
     </div>
   </section>
@@ -238,15 +245,14 @@
     <div class="col-md-6 col-lg-6 col-sm-6 mx-auto projects aboutmy" id="projects" style="display: none;">
       <section id="projects">
         <div class="container my-5">
-          <h2 class="text-warning text-center mb-5">My HTML CSS Projects</h2>
+          <h2 class="text-warning text-center mb-5">My HTML Css Javascript Projects</h2>
           <div class="row">
             <div class="col-md-4 col-sm-12">
               <div class="card mb-4">
                 <img src="./imagescard/wdl_shoe_banner.webp" class="card-img-top" alt="Project 1">
                 <div class="card-body">
                   <h5 class="card-title">Project 1</h5>
-                  <p class="card-text">A brief description of your first project. Explain what the project is about, the
-                    technologies used, and its purpose.</p>
+                  <p class="card-text">Woodland Application Fronted</p>
                   <a href="woodland.html" class="btn btn-warning" target="_blank">View Project</a>
                 </div>
               </div>
@@ -257,8 +263,7 @@
                 <img src="./idimage/idicon.jpg" class="card-img-top" alt="Project 2">
                 <div class="card-body">
                   <h5 class="card-title">Project 2</h5>
-                  <p class="card-text">A brief description of your second project. You can showcase another project with
-                    details here.</p>
+                  <p class="card-text">Id card Application Fronted</p>
                   <a href="Idcardapp.html" class="btn btn-warning" target="_blank">View Project</a>
                 </div>
               </div>
@@ -266,12 +271,34 @@
 
             <div class="col-md-4 col-sm-12">
               <div class="card mb-4">
-                <img src="./image/hero_banner_2.webp" class="card-img-top" alt="Project 3">
+                <img src="./calculator.webp" class="card-img-top" alt="Project 3">
                 <div class="card-body">
                   <h5 class="card-title">Project 3</h5>
-                  <p class="card-text">A brief description of your third project. You can explain what you built here.
+                  <p class="card-text">Calculator
                   </p>
-                  <a href="index.html" class="btn btn-warning" target="_blank">View Project</a>
+                  <a href="calculator.html" class="btn btn-warning" target="_blank">View Project</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <div class="card mb-4">
+                <img src="./imageprojects/clock.jpeg" class="card-img-top" alt="Project 3">
+                <div class="card-body">
+                  <h5 class="card-title">Project 4</h5>
+                  <p class="card-text">Digital Clock
+                  </p>
+                  <a href="clock.html" class="btn btn-warning" target="_blank">View Project</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              <div class="card mb-4">
+                <img src="./imageprojects/tictac.jpg" class="card-img-top" alt="Project 3">
+                <div class="card-body">
+                  <h5 class="card-title">Project 5</h5>
+                  <p class="card-text">Tic Tac Toe Clock
+                  </p>
+                  <a href="ticgame.html" class="btn btn-warning" target="_blank">View Project</a>
                 </div>
               </div>
             </div>
@@ -282,13 +309,15 @@
   </section>
 
   <section>
-    <div class="col-md-4 col-lg-4 col-sm-12 mx-auto contact aboutmy" id="contact" style="display: none;">
+    <div class="col-md-4 col-lg-4 col-sm-6 mx-auto contact aboutmy" id="contact" style="display: none;">
       <h1>Contact Information</h1>
       <p>My contact details will go here.</p>
       <h2>MobNo-9145948382</h2>
       <h2>E-mail-sukhdevsingh00133@gmail.com</h2>
     </div>
   </section>
+
+
 </body>
 
 </html>
